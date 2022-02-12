@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node app.js",
-        "dev": "nodemon app.js"
+        "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\""
     },
     "repository": {
         "type": "git",
@@ -21,6 +21,7 @@
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.1",
+        "concurrently": "^7.0.0",
         "config": "^3.3.7",
         "cors": "^2.8.5",
         "express": "^4.17.2",
