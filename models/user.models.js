@@ -3,21 +3,17 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true,
     },
     lastName: {
         type: String,
-        required: true,
     },
     email: {
         type: String,
         unique: true,
-        required: true,
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Please fill a valid email address"],
     },
     password: {
         type: String,
-        required: true,
     },
     contactInformation: {
         address: {
@@ -29,7 +25,6 @@ const userSchema = new mongoose.Schema({
     },
     dateOfBirth: {
         type: Date,
-        required: true,
     },
     otherInformation: {
         bloodGroup: {
@@ -39,5 +34,6 @@ const userSchema = new mongoose.Schema({
         experience: [{ organizationName: String, position: String, year: Number }],
     },
     posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
-    createdAt: new Date(),
 });
+
+module.exports = User = mongoose.model("User", userSchema);
